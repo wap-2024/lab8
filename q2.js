@@ -2,22 +2,22 @@ function Student(firstName, lastName) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.grades = [];
-
-  this.inputNewGrade = function (newGrade) {
-    this.grades.push(newGrade);
-  };
-
-  this.computeAverage = function () {
-    if (this.grades.length === 0) {
-      return 0;
-    }
-    const sum = this.grades.reduce(
-      (total, grade) => total + grade / this.grades.length,
-      0
-    );
-    return sum;
-  };
 }
+
+Student.prototype.inputNewGrade = function (newGrade) {
+  this.grades.push(newGrade);
+};
+
+Student.prototype.computeAverage = function () {
+  if (this.grades.length === 0) {
+    return 0;
+  }
+  const sum = this.grades.reduce(
+    (total, grade) => total + grade / this.grades.length,
+    0
+  );
+  return sum;
+};
 
 let student1 = new Student("John", "Doe");
 student1.inputNewGrade(85);
